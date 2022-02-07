@@ -56,6 +56,9 @@ class SyncHttpClientRequest {
   /// The synchronous socket used to initiate the HTTP request.
   final RawSynchronousSocket _socket;
 
+  /// The getter for the socket to be used in the client code
+  RawSynchronousSocket get socket => _socket;
+
   SyncHttpClientRequest._(this.method, Uri uri, bool body)
       : uri = uri,
         _body = body ? BytesBuilder() : null,
