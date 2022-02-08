@@ -101,7 +101,7 @@ class SyncHttpClientRequest {
     });
     buffer.write('\r\n');
     if (hasBody) {
-      buffer.write(String.fromCharCodes(_body!.takeBytes()));
+      buffer.write(Utf8Decoder().convert(_body!.takeBytes()));
     }
     _socket.writeFromSync(buffer.toString().codeUnits);
     return SyncHttpClientResponse(_socket);
