@@ -413,7 +413,8 @@ class SyncHttpClientResponse {
       while (!inHeader ||
           !inBody ||
           ((contentRead + lineDecoder.bufferedBytes) < contentLength)) {
-        var bytes = socket.readSync(1024);
+        var bytes = socket.readSync(8000);
+        print('Alaa bytes: $bytes');
 
         if (bytes == null || bytes.isEmpty) {
           break;
